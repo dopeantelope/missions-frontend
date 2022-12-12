@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home";
-import CreateRoom from "./pages/CreateRoom";
-import JoinRoom from "./pages/JoinRoom";
+import CreateGame from "./pages/CreateGame";
+import JoinGame from "./pages/JoinGame";
 import Missions from "./pages/Missions";
 import Lobby from "./pages/Lobby";
 import GameOver from "./pages/GameOver";
+import HowToPlay from "./pages/HowToPlay";
 import io from 'socket.io-client';
 
 function App() { 
@@ -24,11 +25,12 @@ function App() {
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
-          <Route path="create-room" element={<CreateRoom />} />
-          <Route path="join-room" element={<JoinRoom />} />
+          <Route path="create-game" element={<CreateGame />} />
+          <Route path="join-game" element={<JoinGame />} />
           <Route path="missions" element={<Missions />} />
           <Route path="lobby" element={<Lobby />} />
           <Route path="game-over" element={<GameOver />} />
+          <Route path="how-to-play" element={<HowToPlay />} />
         </Route>
       </Routes>
     </BrowserRouter>
