@@ -3,5 +3,9 @@
 @tailwind utilities;
 
 body {
-  background: #2b2d42;
+  background: #090F0F;
+}
+
+input:focus {
+  outline: none;
 }
