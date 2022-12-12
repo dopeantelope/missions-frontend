@@ -1,8 +1,18 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 
+function CreateGame(props) {
+  props.socket.on("gameCode", handleGameCode);
 
-function CreateGame() {
+  function newGame() {
+    console.log("hi");
+    props.socket.emit("newGame");
+  }
+
+  function handleGameCode(gameCode) {
+    console.log(gameCode);
+  }
+
   return (
     <div className="flex flex-col items-center gap-8 mt-8 px-4 text-center">
 
@@ -22,14 +32,13 @@ function CreateGame() {
         </form>
       </div>
 
-
       <Link to="/lobby">
-        <button className="font-['Archivo_Black'] text-darkBackground text-xl bg-brightTeal w-[300px] py-6 rounded-full">
+        <button onClick={newGame} className="font-['Archivo_Black'] text-darkBackground text-xl bg-brightTeal w-[300px] py-6 rounded-full">
           Create Game
         </button>
       </Link>
     </div>
   )
-}
+};
 
-export default CreateGame
+export default CreateGame;
