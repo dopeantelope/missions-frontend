@@ -4,7 +4,9 @@ import Home from "./pages/Home";
 import CreateRoom from "./pages/CreateRoom";
 import JoinRoom from "./pages/JoinRoom";
 import Missions from "./pages/Missions";
-import io from 'socket.io-client'; 
+import Lobby from "./pages/Lobby";
+import GameOver from "./pages/GameOver";
+import io from 'socket.io-client';
 
 function App() { 
   const [socket, setSocket] = useState(null); 
@@ -25,6 +27,8 @@ function App() {
           <Route path="create-room" element={<CreateRoom />} />
           <Route path="join-room" element={<JoinRoom />} />
           <Route path="missions" element={<Missions />} />
+          <Route path="lobby" element={<Lobby />} />
+          <Route path="game-over" element={<GameOver />} />
         </Route>
       </Routes>
     </BrowserRouter>
