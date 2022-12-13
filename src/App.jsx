@@ -9,9 +9,10 @@ import GameOver from "./pages/GameOver";
 import HowToPlay from "./pages/HowToPlay";
 import io from 'socket.io-client';
 
-function App() { 
-  const [socket, setSocket] = useState(null); 
-  console.log(socket) 
+
+function App() {
+  const [socket, setSocket] = useState(null);
+  console.log(socket)
   useEffect(() => { 
     const newSocket = io(`http://${window.location.hostname}:3000`); 
     setSocket(newSocket); 
@@ -25,10 +26,10 @@ function App() {
       <Routes>
         <Route path="/">
           <Route index element={<Home />} />
-          <Route path="create-game" element={<CreateGame />} />
-          <Route path="join-game" element={<JoinGame />} />
+          <Route path="create-game" element={<CreateGame socket={socket}/>} />
+          <Route path="join-game" element={<JoinGame socket={socket}/>} />
           <Route path="missions" element={<Missions />} />
-          <Route path="lobby" element={<Lobby />} />
+          <Route path="lobby" element={<Lobby socket={socket} />} />
           <Route path="game-over" element={<GameOver />} />
           <Route path="how-to-play" element={<HowToPlay />} />
         </Route>

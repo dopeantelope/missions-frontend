@@ -1,8 +1,21 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 
+function CreateGame(props) {
 
-function CreateGame() {
+  function newGame() {
+    props.socket.emit("newGame");
+  }
+
+  function handleGameCode(gameCode) {
+    console.log(gameCode);
+  }
+
+  function formData() {
+    const [username, setUsername] = useState('');
+
+  }
+
   return (
     <div className="flex flex-col items-center gap-8 mt-8 px-4 text-center">
 
@@ -13,7 +26,7 @@ function CreateGame() {
 
       <div className="">
         <h2 className='mb-2 text-ming'>
-          Enter nickname
+          Enter username
         </h2>
         <form 
           action=""
@@ -22,14 +35,13 @@ function CreateGame() {
         </form>
       </div>
 
-
       <Link to="/lobby">
-        <button className="font-['Archivo_Black'] text-darkBackground text-xl bg-brightTeal w-[300px] py-6 rounded-full">
+        <button onClick={newGame} className="font-['Archivo_Black'] text-darkBackground text-xl bg-brightTeal w-[300px] py-6 rounded-full">
           Create Game
         </button>
       </Link>
     </div>
   )
-}
+};
 
-export default CreateGame
+export default CreateGame;

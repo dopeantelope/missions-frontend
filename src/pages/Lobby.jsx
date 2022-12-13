@@ -2,26 +2,20 @@ import { useState, useEffect } from 'react'
 import { Outlet, Link } from "react-router-dom";
 
 
-function Lobby() {
+function Lobby(props) {
 
-  const users = ['dopeantelope', 'wildmelon', 'forestspice']
-  let usersConnected = users.map(element => <li className="text-ming">{element}</li>)
+  const [gameCode, setGameCode] = useState("xxxx");
+  props.socket.on("getGameCode", handleGameCode);
 
-
-  const generateRoomCode = () => {
-    // Declare all characters
-    let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-    // Pick characers randomly
-    let str = '';
-    for (let i = 0; i < 4; i++) {
-        str += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-
-    return str;
-  };
+  let users = []
+  let user = props.socket.id
+  users.push(user)
+  let usersConnected = users.map(element => <li className="text-ming" key={props.socket.id}>{element}</li>)
 
 
+  function handleGameCode(roomName) {
+    setGameCode(roomName)
+  }
 
   return (
     <div className="flex flex-col items-center mt-8 px-4 text-center">
@@ -33,7 +27,7 @@ function Lobby() {
 
       <span className="text-ming">Game Code</span>
       <h1 className="font-['Archivo_Black'] mb-8 text-brightTeal text-5xl">
-        {generateRoomCode()}
+        {gameCode}
       </h1>
 
       <h2 className="font-['Archivo_Black'] mb-2 text-ming">Users Connected</h2>
