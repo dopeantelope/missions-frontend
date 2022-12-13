@@ -7,26 +7,11 @@ function Lobby(props) {
   const [gameCode, setGameCode] = useState("xxxx");
   props.socket.on("getGameCode", handleGameCode);
 
-  const users = ['dopeantelope', 'wildmelon', 'forestspice']
-  let usersConnected = "dopeantelope"
-  //users.map(element => <li className="text-ming">{element}</li>)
+  let users = []
+  let user = props.socket.id
+  users.push(user)
+  let usersConnected = users.map(element => <li className="text-ming" key={props.socket.id}>{element}</li>)
 
-
-
-/** 
-  const generateRoomCode = () => {
-    // Declare all characters
-    let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-    // Pick characers randomly
-    let str = '';
-    for (let i = 0; i < 4; i++) {
-        str += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-
-    return str;
-  };
-  */
 
   function handleGameCode(roomName) {
     setGameCode(roomName)

@@ -9,9 +9,10 @@ import GameOver from "./pages/GameOver";
 import HowToPlay from "./pages/HowToPlay";
 import io from 'socket.io-client';
 
-function App() { 
-  const [socket, setSocket] = useState(null); 
-  console.log(socket) 
+
+function App() {
+  const [socket, setSocket] = useState(null);
+  console.log(socket)
   useEffect(() => { 
     const newSocket = io(`http://${window.location.hostname}:3000`); 
     setSocket(newSocket); 

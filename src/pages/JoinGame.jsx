@@ -25,7 +25,7 @@ function JoinGame(props) {
 
       <div className="">
         <h2 className='mb-2 text-ming'>
-          Enter nickname
+          Enter username
         </h2>
         <form 
           action=""

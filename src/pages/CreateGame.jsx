@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 function CreateGame(props) {
- // props.socket.on("gameCode", handleGameCode);
 
   function newGame() {
     props.socket.emit("newGame");
@@ -10,6 +9,11 @@ function CreateGame(props) {
 
   function handleGameCode(gameCode) {
     console.log(gameCode);
+  }
+
+  function formData() {
+    const [username, setUsername] = useState('');
+
   }
 
   return (
@@ -22,7 +26,7 @@ function CreateGame(props) {
 
       <div className="">
         <h2 className='mb-2 text-ming'>
-          Enter nickname
+          Enter username
         </h2>
         <form 
           action=""
