@@ -6,6 +6,7 @@ function Lobby(props) {
 
   const [gameCode, setGameCode] = useState("xxxx");
   props.socket.on("getGameCode", handleGameCode);
+  console.log(props.socket)
 
   let users = []
   let user = props.socket.id
