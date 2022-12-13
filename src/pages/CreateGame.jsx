@@ -2,10 +2,9 @@ import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 function CreateGame(props) {
-  props.socket.on("gameCode", handleGameCode);
+ // props.socket.on("gameCode", handleGameCode);
 
   function newGame() {
-    console.log("hi");
     props.socket.emit("newGame");
   }
 
