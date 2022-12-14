@@ -8,7 +8,7 @@ function JoinGame(props) {
   const [gameCodeInput, setGameCodeInput] = useState('');
 
   function joinGame() {
-    const room = gameCodeInput;
+    const room = gameCodeInput.toUpperCase();
     console.log(username)
     props.socket.emit('joinGame',( {username, room} ))
   }

@@ -8,15 +8,15 @@ function Lobby(props) {
   props.socket.on("getGameCode", handleGameCode);
   console.log(props.socket)
 
-  let users = []
-  let user = props.socket.id
-  users.push(user)
-  let usersConnected = users.map(element => <li className="text-ming" key={props.socket.id}>{element}</li>)
-
+  let usersConnected
 
   function handleGameCode(roomName) {
     setGameCode(roomName)
   }
+
+  props.socket.on('getConnectedUsers', (connectedUsers) => {
+    usersConnected = connectedUsers.map(element => console.log(element.username))
+  })
 
   return (
     <div className="flex flex-col items-center mt-8 px-4 text-center">
