@@ -30,8 +30,9 @@ function CreateGame(props) {
           action=""
         >
           <input 
-          className="font-['Archivo_Black'] bg-darkBackground border-solid border-4 text-white caret-ming border-ming w-[300px] py-5 rounded-full text-center text-3xl" 
+          className="font-['Archivo_Black'] lowercase bg-darkBackground border-solid border-4 text-white caret-ming border-ming w-[300px] py-5 rounded-full text-center text-3xl"
           type="text"
+          maxLength="12"
           onChange={handleUsername}
           value={username}/>
         </form>
