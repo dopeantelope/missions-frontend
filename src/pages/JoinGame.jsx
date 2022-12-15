@@ -9,7 +9,6 @@ function JoinGame(props) {
 
   function joinGame() {
     const room = gameCodeInput.toUpperCase();
-    console.log(username)
     props.socket.emit('joinGame',( {username, room} ))
   }
 

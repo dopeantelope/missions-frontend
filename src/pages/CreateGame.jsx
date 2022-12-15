@@ -6,7 +6,6 @@ function CreateGame(props) {
   const [username, setUsername] = useState('');
 
   function newGame() {
-    console.log(username)
     props.socket.emit('newGame', ( {username} ))
   }
   const handleUsername = (event) => {
