@@ -644,6 +644,14 @@ video {
   line-height: 1;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
 .text-ming {
   --tw-text-opacity: 1;
   color: rgb(87 117 116 / var(--tw-text-opacity));
@@ -671,6 +679,10 @@ video {
 body {
   background: #090F0F;
   font-family: Poppins;
+}
+
+input {
+  text-transform: uppercase;
 }
 
 input:focus {

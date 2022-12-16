@@ -4,15 +4,20 @@ import { Outlet, Link } from "react-router-dom";
 
 function JoinGame(props) {
 
+  const [username, setUsername] = useState('');
   const [gameCodeInput, setGameCodeInput] = useState('');
 
   function joinGame() {
-    const code = gameCodeInput;
-    props.socket.emit('joinGame', code);
+    const room = gameCodeInput.toUpperCase();
+    props.socket.emit('joinGame',( {username, room} ))
   }
 
   const handleChange = (event) => {
     setGameCodeInput(event.target.value);
+  };
+
+  const handleUsername = (event) => {
+    setUsername(event.target.value);
   };
 
   return (
@@ -31,8 +36,11 @@ function JoinGame(props) {
           action=""
         >
           <input
-          className="font-['Archivo_Black'] bg-darkBackground border-solid border-4 text-white caret-ming border-ming w-[300px] py-5 rounded-full text-center text-3xl" 
-          type="text" 
+          className="font-['Archivo_Black'] lowercase bg-darkBackground border-solid border-4 text-white caret-ming border-ming w-[300px] py-5 rounded-full text-center text-3xl" 
+          type="text"
+          maxLength="12"
+          value={username}
+          onChange={handleUsername}
           />
         </form>
       </div>
@@ -45,8 +53,9 @@ function JoinGame(props) {
           action=""
         >
           <input 
-          className="font-['Archivo_Black'] bg-darkBackground border-solid border-4 text-white caret-ming border-ming w-[300px] py-5 rounded-full text-center text-3xl" 
+          className="font-['Archivo_Black'] uppercase bg-darkBackground border-solid border-4 text-white caret-ming border-ming w-[300px] py-5 rounded-full text-center text-3xl" 
           type="text"
+          maxLength="4"
           value={gameCodeInput}
           onChange={handleChange} />
         </form>

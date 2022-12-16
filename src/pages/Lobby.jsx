@@ -1,26 +1,30 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 
-
 function Lobby(props) {
+  console.log(props.socket);
 
   const [gameCode, setGameCode] = useState("xxxx");
   props.socket.on("getGameCode", handleGameCode);
 
-  let users = []
-  let user = props.socket.id
-  users.push(user)
-  let usersConnected = users.map(element => <li className="text-ming" key={props.socket.id}>{element}</li>)
-
-
+  const [usersConnected, setUsersConnected] = useState();
   function handleGameCode(roomName) {
-    setGameCode(roomName)
+    setGameCode(roomName);
   }
+
+  props.socket.on("usersList", (connectedUsers) => {
+    console.log("in connected users")
+    setUsersConnected(
+      connectedUsers.map((element) => (
+        <li className="text-ming" key={props.socket.id}>
+          {element.username}
+        </li>
+      ))
+    );
+  });
 
   return (
     <div className="flex flex-col items-center mt-8 px-4 text-center">
-
-
       <h1 className="font-['Archivo_Black'] mb-8 text-white text-4xl">
         Game Lobby
       </h1>
@@ -31,9 +35,7 @@ function Lobby(props) {
       </h1>
 
       <h2 className="font-['Archivo_Black'] mb-2 text-ming">Users Connected</h2>
-      <ul>
-        {usersConnected}
-      </ul>
+      <ul>{usersConnected}</ul>
 
       <div className="h-[30vh] flex items-end">
         <Link to="/missions">
@@ -43,7 +45,7 @@ function Lobby(props) {
         </Link>
       </div>
     </div>
-  )
+  );
 }
 
-export default Lobby
+export default Lobby;

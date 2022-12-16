@@ -1,20 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 function CreateGame(props) {
 
+  const [username, setUsername] = useState('');
+
   function newGame() {
-    props.socket.emit("newGame");
+    props.socket.emit('newGame', ( {username} ))
   }
+  const handleUsername = (event) => {
+    setUsername(event.target.value);
+  };
 
-  function handleGameCode(gameCode) {
-    console.log(gameCode);
-  }
-
-  function formData() {
-    const [username, setUsername] = useState('');
-
-  }
 
   return (
     <div className="flex flex-col items-center gap-8 mt-8 px-4 text-center">
@@ -31,7 +28,12 @@ function CreateGame(props) {
         <form 
           action=""
         >
-          <input className="font-['Archivo_Black'] bg-darkBackground border-solid border-4 text-white caret-ming border-ming w-[300px] py-5 rounded-full text-center text-3xl" type="text" />
+          <input 
+          className="font-['Archivo_Black'] lowercase bg-darkBackground border-solid border-4 text-white caret-ming border-ming w-[300px] py-5 rounded-full text-center text-3xl"
+          type="text"
+          maxLength="12"
+          onChange={handleUsername}
+          value={username}/>
         </form>
       </div>
 
@@ -43,5 +45,4 @@ function CreateGame(props) {
     </div>
   )
 };
-
 export default CreateGame;
