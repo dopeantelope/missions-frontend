@@ -12,6 +12,10 @@ function Lobby(props) {
     setGameCode(roomName);
   }
 
+  function startGame() {
+    props.socket.emit("startGame")
+  }
+
   props.socket.on("usersList", (connectedUsers) => {
     console.log("in connected users")
     setUsersConnected(
@@ -39,7 +43,10 @@ function Lobby(props) {
 
       <div className="h-[30vh] flex items-end">
         <Link to="/missions">
-          <button className="mt-8 font-['Archivo_Black'] text-darkBackground text-xl bg-brightTeal w-[300px] py-6 rounded-full">
+          <button 
+            className="mt-8 font-['Archivo_Black'] text-darkBackground text-xl bg-brightTeal w-[300px] py-6 rounded-full"
+            onClick={startGame}
+          >
             Start
           </button>
         </Link>
