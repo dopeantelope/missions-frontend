@@ -11,7 +11,7 @@ The frontend for a party game where players compete to complete secret missions 
 
 ## Optimizations
 
-Further optimizations I would like to implement would be having categories for missions that users can toggle depending on where they are playing. Ability to add custom missions, settings for user to choose number of missions and mission resets.
+Further optimizations include adding categories for missions that users can toggle. Ability to add custom missions, settings for user to choose number of missions and mission resets.
 
 ## Lessons Learned:
 
