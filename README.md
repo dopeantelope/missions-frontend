@@ -6,7 +6,7 @@ The frontend for a party game where players compete to complete secret missions 
 
 ## How It's Made:
 
-**Tech used:** JavaScript, React, Node.js, Tailwind, Socketio
+**Tech used:** JavaScript, React, Node.js, MongoDB, Mongoose, Tailwind, Socketio
 
 
 ## Optimizations
