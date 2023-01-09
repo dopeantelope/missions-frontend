@@ -41,16 +41,22 @@ function Lobby(props) {
       <h2 className="font-['Archivo_Black'] mb-2 text-ming">Users Connected</h2>
       <ul>{usersConnected}</ul>
 
-      <div className="h-[30vh] flex items-end">
-        <Link to="/missions">
-          <button 
-            className="mt-8 font-['Archivo_Black'] text-darkBackground text-xl bg-brightTeal w-[300px] py-6 rounded-full"
-            onClick={startGame}
-          >
-            Start
-          </button>
-        </Link>
-      </div>
+
+      //if statement to show start game ----- need to pass in host to Lobby
+
+      {(() => {
+        if (socket.id == host) {
+          <div className="h-[30vh] flex items-end">
+          <Link to="/missions">
+            <button 
+              className="mt-8 font-['Archivo_Black'] text-darkBackground text-xl bg-brightTeal w-[300px] py-6 rounded-full"
+              onClick={startGame}
+            >
+              Start
+            </button>
+          </Link>
+        </div>
+      }})}
     </div>
   );
 }
