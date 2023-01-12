@@ -8,7 +8,8 @@ function Lobby(props) {
   props.socket.on("getGameCode", handleGameCode);
 
   const [usersConnected, setUsersConnected] = useState();
-  function handleGameCode(roomName) {
+  function handleGameCode({roomName, host}) {
+    console.log(`HOST: ${host}`)
     setGameCode(roomName);
   }
 
