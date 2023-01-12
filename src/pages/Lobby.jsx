@@ -17,8 +17,9 @@ function Lobby(props) {
     props.socket.emit("startGame")
   }
 
-  props.socket.on("usersList", (connectedUsers) => {
+  props.socket.on("usersList", ({connectedUsers, host}) => {
     console.log("in connected users")
+    console.log(`HOST: ${host}`)
     setUsersConnected(
       connectedUsers.map((element) => (
         <li className="text-ming" key={props.socket.id}>
