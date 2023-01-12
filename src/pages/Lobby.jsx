@@ -2,19 +2,28 @@ import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 
 function Lobby(props) {
-  console.log(props.socket);
+  //console.log("component renders")
+  //console.log(props.socket);
 
   const [gameCode, setGameCode] = useState("xxxx");
+  const [host, setHost] = useState("xxxx");
+
   props.socket.on("getGameCode", handleGameCode);
 
   const [usersConnected, setUsersConnected] = useState();
-  function handleGameCode(roomName) {
-    setGameCode(roomName);
+
+  function handleGameCode({ room, host }) {
+    setGameCode(room);
+    setHost(host);
   }
 
-  props.socket.on("usersList", (connectedUsers) => {
-    console.log("in connected users")
-    setUsersConnected(
+  function startGame() {
+    props.socket.emit("startGame");
+  }
+
+  props.socket.on("usersList", (connectedUsers ) => {
+    console.log("in connected users");
+     setUsersConnected(
       connectedUsers.map((element) => (
         <li className="text-ming" key={props.socket.id}>
           {element.username}
@@ -37,13 +46,18 @@ function Lobby(props) {
       <h2 className="font-['Archivo_Black'] mb-2 text-ming">Users Connected</h2>
       <ul>{usersConnected}</ul>
 
-      <div className="h-[30vh] flex items-end">
-        <Link to="/missions">
-          <button className="mt-8 font-['Archivo_Black'] text-darkBackground text-xl bg-brightTeal w-[300px] py-6 rounded-full">
-            Start
-          </button>
-        </Link>
-      </div>
+      {props.socket.id === host && (
+        <div className="h-[30vh] flex items-end">
+          <Link to="/missions">
+            <button
+              className="mt-8 font-['Archivo_Black'] text-darkBackground text-xl bg-brightTeal w-[300px] py-6 rounded-full"
+              onClick={startGame}
+            >
+              Start
+            </button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

@@ -28,7 +28,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="create-game" element={<CreateGame socket={socket}/>} />
           <Route path="join-game" element={<JoinGame socket={socket}/>} />
-          <Route path="missions" element={<Missions />} />
+          <Route path="missions" element={<Missions socket={socket}/>} />
           <Route path="lobby" element={<Lobby socket={socket} />} />
           <Route path="game-over" element={<GameOver />} />
           <Route path="how-to-play" element={<HowToPlay />} />
