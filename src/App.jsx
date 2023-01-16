@@ -1,3 +1,5 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./pages/Home";
@@ -12,7 +14,6 @@ import io from 'socket.io-client';
 
 function App() {
   const [socket, setSocket] = useState(null);
-  console.log(socket)
   useEffect(() => { 
     const newSocket = io(`http://${window.location.hostname}:3000`); 
     setSocket(newSocket); 

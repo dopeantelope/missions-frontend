@@ -1,3 +1,5 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 import { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 
@@ -46,8 +48,9 @@ function Lobby(props) {
       <h2 className="font-['Archivo_Black'] mb-2 text-ming">Users Connected</h2>
       <ul>{usersConnected}</ul>
 
-      {props.socket.id === host && (
-        <div className="h-[30vh] flex items-end">
+      
+      <div className="h-[30vh] flex items-end">
+        {props.socket.id === host ? (
           <Link to="/missions">
             <button
               className="mt-8 font-['Archivo_Black'] text-darkBackground text-xl bg-brightTeal w-[300px] py-6 rounded-full"
@@ -56,8 +59,8 @@ function Lobby(props) {
               Start
             </button>
           </Link>
-        </div>
-      )}
+        ) : <p className="text-ming">Waiting for host to start game...</p>}
+      </div>
     </div>
   );
 }
