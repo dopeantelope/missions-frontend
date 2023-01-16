@@ -1,7 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
 import Card from "../components/Card";
 
 function Missions(props) {

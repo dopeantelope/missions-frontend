@@ -1,11 +1,8 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { useState, useEffect } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { useState,  } from "react";
+import { Link } from "react-router-dom";
 
 function Lobby(props) {
-  //console.log("component renders")
-  //console.log(props.socket);
 
   const [gameCode, setGameCode] = useState("xxxx");
   const [host, setHost] = useState("xxxx");
