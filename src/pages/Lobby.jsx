@@ -30,6 +30,13 @@ function Lobby(props) {
       ))
     );
   });
+  props.socket.on("redirect", redirectToMissions);
+
+  function redirectToMissions(){
+    console.log("hi")
+    props.socket.id === host ? console.log("hi"): (window.location.href = "/missions")
+
+  }
 
   return (
     <div className="flex flex-col items-center mt-8 px-4 text-center">

@@ -537,12 +537,20 @@ video {
   height: 30vh;
 }
 
+.h-\[80px\] {
+  height: 80px;
+}
+
 .w-full {
   width: 100%;
 }
 
 .w-\[300px\] {
   width: 300px;
+}
+
+.w-\[95\%\] {
+  width: 95%;
 }
 
 .flex-col {
@@ -555,6 +563,10 @@ video {
 
 .items-center {
   align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .gap-8 {

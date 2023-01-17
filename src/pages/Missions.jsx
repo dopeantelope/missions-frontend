@@ -8,6 +8,7 @@ function Missions(props) {
   props.socket.on("getMissions", myFunction);
 
   function myFunction(users) {
+    console.log(users)
     setUserMissions(users.missions);
   }
   useEffect(() => {
