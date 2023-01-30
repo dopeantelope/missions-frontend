@@ -5,7 +5,7 @@ The frontend for a party game app where players compete to complete secret missi
 ![Alt Text](https://i.ibb.co/BwS1NPM/Screenshot-2023-01-06-at-11-59-45.png)
 
 ## How It's Made
-The frontend for this party game application is built using React, Tailwind, and Socket.IO. The app allows players to engage in dynamic and interactive competition, completing secret missions against their friends. The "Create Game" feature utilizes Socket.IO to create a room and generate a randomized 4 letter room code, enabling other players to join the game by entering the designated room code. Upon joining the game, players are brought to the lobby, which displays a comprehensive list of all connected users. The host has the ability to initiate the game through the "Start Game" feature, at which point players are randomly assigned missions from the database to complete. The implementation of these cutting-edge technologies ensures a seamless, high-performance user experience.
+The frontend for this party game application is built using React, Tailwind, and Socket.IO. The app allows players to engage in dynamic and interactive competition, completing secret missions against their friends. The "Create Game" feature utilizes Socket.IO to create a room and generate a randomized 4 letter room code, enabling other players to join the game by entering the designated room code. Upon joining the game, players are brought to the lobby, which displays a comprehensive list of all connected users. The host has the ability to initiate the game through the "Start Game" feature, at which point players are randomly assigned missions from the database to complete.
 
 **Full-stack tech used:** JavaScript, React, Node.js, MongoDB, Mongoose, Tailwind, Socket.IO
 
